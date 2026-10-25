@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Internship Management System | UMK</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="login-page">
+    <div class="photo-panel" aria-hidden="true"></div>
+    <div class="blue-overlay" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="University Malaysia Kelantan home">
+        <span class="brand-mark">UMK</span>
+        <span class="brand-name">University Malaysia Kelantan</span>
+      </a>
+      <nav class="navigation" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#help">Help</a>
+      </nav>
+    </header>
+
+    <section class="login-card" aria-labelledby="login-title">
+      <div class="card-heading">
+        <div class="mini-logo" aria-hidden="true">UMK</div>
+        <p class="eyebrow">SMART INTERNSHIP MANAGEMENT SYSTEM</p>
+        <h1 id="login-title">LOGIN TO YOUR<br />ACCOUNT</h1>
+        <p class="subtitle">Real-time tracking &amp; automated performance evaluation</p>
+      </div>
+
+      <form id="loginForm">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" placeholder="Enter your username" autocomplete="username" required />
+
+        <label for="email">Email Address</label>
+        <input id="email" name="email" type="email" placeholder="Enter your university email" autocomplete="email" required />
+
+        <label for="password">Password</label>
+        <div class="password-wrap">
+          <input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required minlength="4" />
+          <button class="toggle-password" type="button" id="togglePassword" aria-label="Show password">Show</button>
+        </div>
+
+        <div class="form-options">
+          <label class="remember"><input type="checkbox" name="remember" /> <span>Remember me</span></label>
+          <a href="#forgot" id="forgotLink">Forgot password?</a>
+        </div>
+
+        <button class="login-button" type="submit">LOGIN <span aria-hidden="true">→</span></button>
+        <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="signup-line">
+        <span>Don't have an account?</span>
+        <a href="#signup" id="signupLink">Sign up now</a>
+      </div>
+    </section>
+
+    <footer class="footer" id="help">
+      <div class="contact-item"><span class="contact-icon">☎</span><div><strong>Phone</strong><small>+609-779 7000</small></div></div>
+      <div class="contact-item"><span class="contact-icon">✉</span><div><strong>Email</strong><small>info@umk.edu.my</small></div></div>
+      <div class="contact-item"><span class="contact-icon">⌖</span><div><strong>Website</strong><small>www.umk.edu.my</small></div></div>
+      <div class="contact-item"><span class="contact-icon">⌂</span><div><strong>Address</strong><small>University Malaysia Kelantan, Malaysia</small></div></div>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
