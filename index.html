@@ -1,70 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Smart Internship Management System | UMK</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="login-page">
+  <main class="login-page" id="loginPage">
     <div class="photo-panel" aria-hidden="true"></div>
     <div class="blue-overlay" aria-hidden="true"></div>
-
     <header class="topbar">
-      <a class="brand" href="#" aria-label="University Malaysia Kelantan home">
-        <span class="brand-mark">UMK</span>
-        <span class="brand-name">University Malaysia Kelantan</span>
-      </a>
-      <nav class="navigation" aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#help">Help</a>
-      </nav>
+      <a class="brand" href="#"><span class="brand-mark" aria-hidden="true">UMK</span><span class="brand-name">University Malaysia Kelantan</span></a>
+      <nav class="navigation" aria-label="Main navigation"><a href="#home">Home</a><a href="#about">About</a><a href="#help">Help</a></nav>
     </header>
-
     <section class="login-card" aria-labelledby="login-title">
       <div class="card-heading">
         <div class="mini-logo" aria-hidden="true">UMK</div>
         <p class="eyebrow">SMART INTERNSHIP MANAGEMENT SYSTEM</p>
-        <h1 id="login-title">LOGIN TO YOUR<br />ACCOUNT</h1>
+        <h1 id="login-title">LOGIN TO YOUR<br>ACCOUNT</h1>
         <p class="subtitle">Real-time tracking &amp; automated performance evaluation</p>
       </div>
-
       <form id="loginForm">
         <label for="username">Username</label>
-        <input id="username" name="username" type="text" placeholder="Enter your username" autocomplete="username" required />
-
+        <input id="username" name="username" type="text" placeholder="Enter your username" autocomplete="username" required>
         <label for="email">Email Address</label>
-        <input id="email" name="email" type="email" placeholder="Enter your university email" autocomplete="email" required />
-
+        <input id="email" name="email" type="email" placeholder="Enter your university email" autocomplete="email" required>
         <label for="password">Password</label>
-        <div class="password-wrap">
-          <input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required minlength="4" />
-          <button class="toggle-password" type="button" id="togglePassword" aria-label="Show password">Show</button>
-        </div>
-
-        <div class="form-options">
-          <label class="remember"><input type="checkbox" name="remember" /> <span>Remember me</span></label>
-          <a href="#forgot" id="forgotLink">Forgot password?</a>
-        </div>
-
+        <div class="password-wrap"><input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required minlength="4"><button class="toggle-password" type="button" id="togglePassword">Show</button></div>
+        <div class="form-options"><label class="remember"><input type="checkbox" name="remember"><span>Remember me</span></label><a href="#forgot" id="forgotLink">Forgot password?</a></div>
         <button class="login-button" type="submit">LOGIN <span aria-hidden="true">→</span></button>
         <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
       </form>
-
-      <div class="signup-line">
-        <span>Don't have an account?</span>
-        <a href="#signup" id="signupLink">Sign up now</a>
-      </div>
+      <div class="signup-line"><span>Don't have an account?</span><a href="#signup" id="signupLink">Sign up now</a></div>
     </section>
-
     <footer class="footer" id="help">
       <div class="contact-item"><span class="contact-icon">☎</span><div><strong>Phone</strong><small>+609-779 7000</small></div></div>
       <div class="contact-item"><span class="contact-icon">✉</span><div><strong>Email</strong><small>info@umk.edu.my</small></div></div>
       <div class="contact-item"><span class="contact-icon">⌖</span><div><strong>Website</strong><small>www.umk.edu.my</small></div></div>
       <div class="contact-item"><span class="contact-icon">⌂</span><div><strong>Address</strong><small>University Malaysia Kelantan, Malaysia</small></div></div>
     </footer>
+  </main>
+
+  <main class="dashboard-page" id="dashboardPage" hidden>
+    <header class="dashboard-header"><h1>Smart Internship Management System</h1><button type="button" class="logout-button" id="logoutButton">Log out</button></header>
+    <section class="welcome-banner"><p>Welcome, <strong id="welcomeName">Student</strong></p></section>
+    <section class="progress-overview" aria-label="Internship progress overview">
+      <article class="progress-card progress-card-action" id="attendanceCard" role="button" tabindex="0" aria-label="Open attendance check-in">
+        <div class="progress-title"><strong>Attendance:</strong> <span id="attendanceText">0 days</span></div>
+        <div class="progress-track"><div class="progress-fill" id="attendanceBar"></div></div>
+        <p class="progress-hint" id="attendanceHint">Click to mark today's attendance</p>
+      </article>
+      <article class="progress-card">
+        <div class="progress-title"><strong>Logbook Entries:</strong> <span id="logbookText">0 Submitted</span></div>
+        <div class="progress-track"><div class="progress-fill" id="logbookBar"></div></div>
+        <p class="progress-hint">Total logbooks submitted</p>
+      </article>
+      <article class="progress-card">
+        <div class="progress-title"><strong>Progress Status:</strong> <span id="statusText">In Progress</span></div>
+        <div class="progress-track"><div class="progress-fill" id="statusBar"></div></div>
+        <p class="progress-hint">Based on attendance and logbook activity</p>
+      </article>
+    </section>
+    <section class="dashboard-content">
+      <article class="dashboard-panel submit-panel">
+        <h2>Submit Logbook</h2>
+        <form id="logbookForm">
+          <label class="upload-description" for="logbookFile"><span aria-hidden="true">•</span> Upload Logbook Entry</label>
+          <label class="file-picker" for="logbookFile"><span class="file-picker-icon" aria-hidden="true">＋</span><span id="fileName">Choose a file to upload</span><input id="logbookFile" name="logbookFile" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required></label>
+          <p class="file-help">Accepted formats: PDF, DOC, DOCX, JPG, PNG (max 10 MB)</p>
+          <div class="upload-status" id="uploadStatus" role="status" aria-live="polite"></div>
+          <button class="submit-button" type="submit">SUBMIT</button>
+        </form>
+      </article>
+      <article class="dashboard-panel updates-panel">
+        <h2>Today's Reminders</h2>
+        <p class="reminder-date" id="reminderDate">Your schedule for today</p>
+        <form id="reminderForm" class="reminder-form">
+          <label for="reminderTitle">Reminder / activity</label>
+          <input id="reminderTitle" type="text" maxlength="100" placeholder="e.g. Meeting with supervisor" required>
+          <div class="reminder-fields">
+            <div>
+              <label for="reminderTime">Time</label>
+              <input id="reminderTime" type="time">
+            </div>
+            <div>
+              <label for="reminderNote">Note (optional)</label>
+              <input id="reminderNote" type="text" maxlength="160" placeholder="e.g. Bring logbook">
+            </div>
+          </div>
+          <button type="submit" class="add-reminder-button">+ Add reminder</button>
+        </form>
+        <p class="reminder-empty" id="reminderEmpty">No reminders yet. Add your plans for today above.</p>
+        <ul class="updates-list" id="updatesList" aria-label="Today's reminders"></ul>
+      </article>
+    </section>
+    <div class="attendance-modal" id="attendanceModal" hidden>
+      <section class="attendance-dialog" role="dialog" aria-modal="true" aria-labelledby="attendanceDialogTitle">
+        <button class="modal-close" type="button" id="closeAttendanceModal" aria-label="Close attendance dialog">×</button>
+        <h2 id="attendanceDialogTitle">Attendance Check-in</h2>
+        <p id="attendanceDateText">Mark your attendance for today.</p>
+        <p class="attendance-note">You can mark attendance once per day on this device.</p>
+        <p id="attendanceModalMessage" class="attendance-modal-message" role="status" aria-live="polite"></p>
+        <button type="button" class="mark-attendance-button" id="markAttendanceButton">MARK PRESENT</button>
+      </section>
+    </div>
+    <footer class="dashboard-footer">Smart Internship Management System · University Malaysia Kelantan</footer>
   </main>
   <script src="script.js"></script>
 </body>
